@@ -21,6 +21,9 @@ def stations_within_radius(stations, centre, r):
 
 
 def stations_by_distance(stations, p):
+    """Returns a list of stations which have been sorted by their radial
+    distance from the given datum p, which is a tuple in the format (lat,
+    long)."""
     list_of_tuples = []
     for station in stations:
         distance_from_p = haversine(p, station.coord)
