@@ -25,5 +25,12 @@ radius_test_centre = (51.507877, -0.087732)
 
 def test_stations_within_radius():
     finds = stations_within_radius(dummy_stations, radius_test_centre, 1.0)
+    seen = {}
     for find in finds:
         assert find.river == "1", f"Station outside testing radius was returned (station: {find.station_id})"
+        seen[find.station_id] = True
+
+    for station in dummy_stations:
+        if station.station_id not in seen:
+            assert station.river != "1", \
+                f"Station inside testing radius was NOT returned (station: {station.station_id})"
