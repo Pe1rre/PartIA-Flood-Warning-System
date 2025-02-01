@@ -32,3 +32,33 @@ def stations_by_distance(stations, p):
         list_of_tuples.append(z)
     list_of_tuples = sorted_by_key(list_of_tuples, 1)
     return list_of_tuples
+
+
+def rivers_by_station_number(stations, N):
+    """Returns a list of N stations with the highest number of stations.
+    N must be an integer gt 0.
+    Stations are returned in the format (river name, number of stations)."""
+    if N <= 0:
+        raise ValueError("N must be an integer greater than zero")
+
+    # Extract rivers from objects, mapping river name to
+    # number of stations and sorting by the latter.
+    rivercounts = {}
+    for station in stations:
+        if station.river not in rivercounts:
+            rivercounts[station.river] = 0
+        rivercounts[station.river] += 1
+    rivers = list(rivercounts.items())
+    rivers.sort(key=lambda x: x[1], reverse=True)
+
+    # Move through the list of rivers, extracting the
+    # number of stations needed to have N *different counts*
+    # by checking the number of times this count changes.
+    i = 1
+    changecount = 0
+    while changecount < N and i < len(rivers):
+        if rivers[i][1] != rivers[i - 1][1]:
+            changecount += 1
+        i += 1
+
+    return rivers[:i - 1]
