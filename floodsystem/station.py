@@ -7,6 +7,13 @@ for manipulating/modifying station data
 """
 
 
+def inconsistent_typical_range_stations(stations):
+    """Returns a list of stations with consistent typical range data.
+    See documentation on MonitoringStation.typical_range_consistent for the criteria for this.
+    """
+    return list(filter(lambda s: not s.typical_range_consistent(), stations))
+
+
 class MonitoringStation:
     """This class represents a river level monitoring station"""
 
@@ -39,3 +46,14 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+
+    def typical_range_consistent(self):
+        """Returns True if typical range data is consistent.
+        Data is considered consistent if:
+            a. The data is available
+            b. The typical high is not less than the typical low
+        """
+        if self.typical_range is None:
+            return False
+
+        return self.typical_range[1] > self.typical_range[0]

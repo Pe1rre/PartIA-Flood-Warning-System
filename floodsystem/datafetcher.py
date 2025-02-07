@@ -120,7 +120,7 @@ def fetch_measure_levels(measure_id, dt):
     """
 
     # Current time (UTC)
-    now = datetime.datetime.utcnow()
+    now = datetime.datetime.now()
 
     # Start time for data
     start = now - dt
