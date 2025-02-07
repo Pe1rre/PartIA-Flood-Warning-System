@@ -1,10 +1,11 @@
 # Copyright (C) 2025 Ethan J. Marshall (em2017@cam.ac.uk)
+# Copyright (C) 2025 Peter J. Kelly (pk578@cam.ac.uk)
 #
 # SPDX-License-Identifier: MIT
 """Unit tests for the geo package."""
 
 from floodsystem.station import MonitoringStation
-from floodsystem.geo import stations_within_radius
+from floodsystem.geo import stations_within_radius, stations_by_distance
 
 
 # Dummy stations using geographical data from Google Maps.
@@ -18,7 +19,7 @@ dummy_stations = [
     MonitoringStation("tokyo-international-centre", "", "", (35.676788, 139.763535), "", "", "Tokyo"),
 ]
 
-# Centre to use for test for stations_within_radius. This is the location of London Bridge.
+# Centre to use for tests. This is the location of London Bridge.
 # London Bridge is 0.9km from Tower Bridge and 0.87km from The Tower of London.
 radius_test_centre = (51.507877, -0.087732)
 
@@ -34,3 +35,9 @@ def test_stations_within_radius():
         if station.station_id not in seen:
             assert station.river != "1", \
                 f"Station inside testing radius was NOT returned (station: {station.station_id})"
+
+
+def test_station_by_distance():
+    test_list = stations_by_distance(dummy_stations, radius_test_centre)
+    for i in range(1,len(test_list) - 1):
+        assert test_list[i][1] >= test_list[i-1][1], f"Element {i} and {i-1} where in the wrong order!"
