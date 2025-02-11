@@ -53,6 +53,7 @@ def test_rivers_with_station():
     test_list = rivers_with_station(dummy_stations_for_river_testing)
     assert len(dummy_stations_for_river_testing) > len(set(test_list)), "Duplicates of the same river present!"
 
+
 def test_stations_by_river():
     # test to ensure stations on the same river have the same river key in the dictionary
     test_list = stations_by_river(dummy_stations_for_river_testing)
