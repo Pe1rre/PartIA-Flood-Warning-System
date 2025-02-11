@@ -4,6 +4,7 @@ from floodsystem.geo import stations_by_distance
 
 
 def run():
+    # prints a list of tuples for the ten closest and ten furthest stations from Cambridge City centre
     list_of_stations = stations_by_distance(stations=build_station_list(), p=(52.2053, 0.1218))
     closest_stations = list_of_stations[:10]
     furthest_stations = list_of_stations[:-10]

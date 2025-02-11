@@ -9,7 +9,7 @@ from floodsystem.geo import stations_by_river
 
 
 def run():
-    """Requirements for Task 1D"""
+    # Print the rivers with atleast one monitoring station, and print the first ten stations in alphabetical order
 
     # Build list of stations
     stations = build_station_list()
@@ -22,7 +22,8 @@ def run():
     print("First 10:")
     for i in range(0, 10):
         print("\t", rivers_array[i][0])
-
+    # Second demonstration
+    # Print the names of station in for river aire, river cam and river thames in alphabetical order
     river_aire = rivers["River Aire"]
     river_cam = rivers["River Cam"]
     river_thames = rivers["River Thames"]

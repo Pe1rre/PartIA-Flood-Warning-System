@@ -14,6 +14,7 @@ def stations_within_radius(stations, centre, r):
     """Returns a list of stations which have a radial distance of r km or lower from centre.
     Centre is in the form (x, y)."""
     found = []
+    # iterate through stations
     for station in stations:
         if haversine(centre, station.coord) <= r:
             found.append(station)
@@ -50,6 +51,7 @@ def stations_by_river(stations):
     """produces a dictionary that tells you all the stations on a river
     might need to iterate and do each component individually"""
     stations_on_river = {}
+    # iterate through stations
     for station in stations:
         if station.river not in stations_on_river:
             stations_on_river[station.river] = []
