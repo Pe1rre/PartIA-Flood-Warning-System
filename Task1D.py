@@ -23,13 +23,9 @@ def run():
     for i in range(0, 10):
         print("\t", rivers_array[i][0])
 
-def run2():
-    """Requirements for Task 1D""" 
-    stations = build_station_list()
-    dictionary = stations_by_river(stations)
-    river_aire = dictionary["River Aire"]
-    river_cam = dictionary["River Cam"]
-    river_thames = dictionary["River Thames"]
+    river_aire = rivers["River Aire"]
+    river_cam = rivers["River Cam"]
+    river_thames = rivers["River Thames"]
     print(river_aire.sort(), river_cam.sort(), river_thames.sort()) 
 
 
