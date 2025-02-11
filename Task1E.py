@@ -11,6 +11,7 @@ def run():
 
     # Build list of stations
     stations = build_station_list()
+    # Get the top 9 rivers by station count
     matches = rivers_by_station_number(stations, 9)
     print(matches)
 
