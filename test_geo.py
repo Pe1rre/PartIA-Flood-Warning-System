@@ -51,7 +51,7 @@ def test_station_by_distance():
 def test_rivers_with_station():
     #test for duplicate entries ie a river comes up more than once
     test_list = rivers_with_station(dummy_stations_for_river_testing)
-    assert len(dummy_stations_for_river_testing) > len(set(dummy_stations_for_river_testing)), f"Duplicates of the same river present!"
+    assert len(dummy_stations_for_river_testing) > len(set(test_list)), f"Duplicates of the same river present!"
 
 def test_stations_by_river():
     #test to ensure stations on the same river have the same river key in the dictionary
