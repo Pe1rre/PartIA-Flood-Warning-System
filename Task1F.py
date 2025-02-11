@@ -12,8 +12,10 @@ def run():
 
     # Build list of stations
     stations = build_station_list()
-    matchs = inconsistent_typical_range_stations(stations)
-    for match in matchs:
+    # Find any stations with inconsistent typical range
+    matches = inconsistent_typical_range_stations(stations)
+    # Print the name of each match
+    for match in matches:
         print(match.name)
 
 

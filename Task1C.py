@@ -13,7 +13,9 @@ def run():
     stations = build_station_list()
     # Get those within radius
     matches = stations_within_radius(stations, (52.2053, 0.1218), 10)
+    # Sort by the name of each station
     matches.sort(key=lambda x: x.name)
+    # Print the name of each match
     for match in matches:
         print(match.name)
 
