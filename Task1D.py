@@ -26,7 +26,7 @@ def run():
     river_aire = rivers["River Aire"]
     river_cam = rivers["River Cam"]
     river_thames = rivers["River Thames"]
-    print(river_aire.sort(), river_cam.sort(), river_thames.sort()) 
+    print(river_aire.sort(), river_cam.sort(), river_thames.sort())
 
 
 if __name__ == "__main__":
