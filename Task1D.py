@@ -32,7 +32,14 @@ def run():
     river_cam.sort(key=lambda x: x.name)
     river_thames.sort(key=lambda x: x.name)
 
-    print(river_aire, river_cam, river_thames)
+    for station in river_aire:
+        print(station.name)
+
+    for station in river_cam:
+        print(station.name)
+
+    for station in river_thames:
+        print(station.name)
 
 
 if __name__ == "__main__":
