@@ -27,7 +27,12 @@ def run():
     river_aire = rivers["River Aire"]
     river_cam = rivers["River Cam"]
     river_thames = rivers["River Thames"]
-    print(river_aire.sort(), river_cam.sort(), river_thames.sort())
+    # sort alphabetically by name
+    river_aire.sort(key=lambda x: x.name)
+    river_cam.sort(key=lambda x: x.name)
+    river_thames.sort(key=lambda x: x.name)
+
+    print(river_aire, river_cam, river_thames)
 
 
 if __name__ == "__main__":
