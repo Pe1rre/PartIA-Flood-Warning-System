@@ -9,9 +9,9 @@ def run():
     furthest_stations = list_of_stations[-10:]
 
     for closest in closest_stations:
-        print(closest[0], closest[1])
+        print(closest[0].name, closest[0].town, closest[1])
     for furthest in furthest_stations:
-        print(furthest[0], furthest[1])
+        print(furthest[0].name, furthest[0].town, furthest[1])
 
 
 if __name__ == "__main__":
