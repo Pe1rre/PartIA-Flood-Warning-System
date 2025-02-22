@@ -24,8 +24,10 @@ def stations_level_over_threshold(stations, tol):
 def stations_highest_rel_level(stations, N):
     list_of_tuples = []
     for station in stations:
-        if stations.typical_range_consistent(station):
-            relative_level = stations.relative_water_level(station)
+        if station.typical_range_consistent():
+            relative_level = station.relative_water_level()
+            if relative_level is None:
+                continue
             z = (station, relative_level)
             list_of_tuples.append(z)
     list_of_tuples = sorted(list_of_tuples, key=lambda x: x[1], reverse=False)
