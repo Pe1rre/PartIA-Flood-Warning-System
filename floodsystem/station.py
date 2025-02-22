@@ -60,8 +60,8 @@ class MonitoringStation:
 
     def relative_water_level(self):
         """Function to return latest water level as a fraction of the typical range"""
-        if self.measure_id is None:
+        if self.latest_level is None:
             return None
         else:
             # Might need to change it to measure id - typical range over typical range??
-            return self.measure_id / (self.typical_range[1] - self.typical_range[0])
+            return self.latest_level / (self.typical_range[1] - self.typical_range[0])
