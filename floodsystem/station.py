@@ -57,14 +57,11 @@ class MonitoringStation:
             return False
 
         return self.typical_range[1] > self.typical_range[0]
-    
-    #Functino to return latest water level as a fraction of the typical range
+
     def relative_water_level(self):
+        """Function to return latest water level as a fraction of the typical range"""
         if self.measure_id is None:
             return None
         else:
-            #might need to change it to measure id - typical range over typical range??#What is the actual measurement value!!!????
-            ratio = (self.measure_id)/(self.typical_range[1]-self.typical_range[0]) #(self.measure_id - self.typical_range)/(self.typical_range)
-            return ratio
-        
-
+            # Might need to change it to measure id - typical range over typical range??
+            return self.measure_id / (self.typical_range[1] - self.typical_range[0])
