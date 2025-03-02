@@ -7,7 +7,11 @@ plotting water levels and other data graphically.
 
 """
 
+import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.dates
+
+from . import analysis
 
 
 def plot_water_levels(station, dates, levels):
@@ -28,4 +32,19 @@ def plot_water_levels(station, dates, levels):
     # Display plot
     plt.tight_layout()  # This makes sure plot does not cut off date labels
 
+    plt.show()
+
+
+def plot_water_level_with_fit(station, dates, levels, p):
+    poly, d0 = analysis.polyfit(dates, levels, p)
+
+    dateints = np.array(matplotlib.dates.date2num(dates))
+    x = dateints - d0
+
+    plt.plot(x, levels)
+    plt.plot(x, poly(x))
+
+    plt.title(station.name + " - water level prediction")
+    plt.xlabel('date')
+    plt.ylabel('water level (m)')
     plt.show()
