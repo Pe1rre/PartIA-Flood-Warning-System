@@ -15,7 +15,7 @@ def stations_level_over_threshold(stations, tol):
     for station in stations:
         if station.typical_range_consistent():
             relative_level = station.relative_water_level()
-            if relative_level > tol:
+            if relative_level is not None and relative_level > tol:
                 z = (station, relative_level)
                 list_of_tuples.append(z)
     return sorted(list_of_tuples, key=lambda x: x[1], reverse=True)
