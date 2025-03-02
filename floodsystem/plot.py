@@ -15,13 +15,12 @@ from . import analysis
 
 
 def plot_water_levels(station, dates, levels):
-    high_low = station.typical_range
-
     # Plot
     plt.plot(dates, levels)
-    # How do I work out the typical high and low ranges of a rivers water level?
-    plt.plot(high_low[0])
-    plt.plot(high_low[1])
+    plt.hlines(station.typical_range[0], dates[0], dates[-1], label='Typical Range - Low', linestyles='dashed',
+               color='r')
+    plt.hlines(station.typical_range[1], dates[0], dates[-1], label='Typical Range - High', linestyles='dashed',
+               color='r')
 
     # Add axis labels, rotate date labels and add plot title
     plt.xlabel('date')
@@ -31,6 +30,7 @@ def plot_water_levels(station, dates, levels):
 
     # Display plot
     plt.tight_layout()  # This makes sure plot does not cut off date labels
+    plt.legend()
 
     plt.show()
 
