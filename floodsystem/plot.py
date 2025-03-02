@@ -14,13 +14,17 @@ import matplotlib.dates
 from . import analysis
 
 
-def plot_water_levels(station, dates, levels):
-    # Plot
-    plt.plot(dates, levels)
+def plot_typical_range(station, dates):
     plt.hlines(station.typical_range[0], dates[0], dates[-1], label='Typical Range - Low', linestyles='dashed',
                color='r')
     plt.hlines(station.typical_range[1], dates[0], dates[-1], label='Typical Range - High', linestyles='dashed',
                color='r')
+
+
+def plot_water_levels(station, dates, levels):
+    # Plot
+    plt.plot(dates, levels)
+    plot_typical_range(station, dates)
 
     # Add axis labels, rotate date labels and add plot title
     plt.xlabel('date')
@@ -43,8 +47,11 @@ def plot_water_level_with_fit(station, dates, levels, p):
 
     plt.plot(x, levels)
     plt.plot(x, poly(x))
+    plot_typical_range(station, x)
 
     plt.title(station.name + " - water level prediction")
     plt.xlabel('date')
     plt.ylabel('water level (m)')
+
+    plt.legend()
     plt.show()
