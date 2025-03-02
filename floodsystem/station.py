@@ -64,4 +64,4 @@ class MonitoringStation:
             return None
         else:
             # Might need to change it to measure id - typical range over typical range??
-            return self.latest_level / (self.typical_range[1] - self.typical_range[0])
+            return (self.latest_level - self.typical_range[0]) / (self.typical_range[1] - self.typical_range[0])
