@@ -30,6 +30,6 @@ def stations_highest_rel_level(stations, N):
                 continue
             z = (station, relative_level)
             list_of_tuples.append(z)
-    list_of_tuples = sorted(list_of_tuples, key=lambda x: x[1], reverse=False)
+    list_of_tuples = sorted(list_of_tuples, key=lambda x: x[1], reverse=True)
     # Use a slice to get the first N
     return (list_of_tuples[0:N + 1])
